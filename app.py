@@ -14,8 +14,8 @@ def home():
 
 @app.post("/predict")
 def predict_sentiment(item: TextInput):
-    vec = joblib.load("model/vectorizer.joblib")
-    model = joblib.load("model/model.joblib")
+    vec = joblib.load("vectorizer.joblib")
+    model = joblib.load("model.joblib")
     X = vec.transform([item.text])
     pred = model.predict(X)[0]
     return {
